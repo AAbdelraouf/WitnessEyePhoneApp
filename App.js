@@ -1,49 +1,50 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import Routes from './Routes.js'
-
+import WitnessSessionRoute from './WitnessSessionRoute.js'
 import { createBottomTabNavigator } from 'react-navigation';
 
 class App extends Component {
   render() {
     return (
-      <Routes />
-    );
-  }
-}
-
-
-
-class profileSection extends Component {
-  render() {
-    return (
+      // imported WitnessSessionRoute
       <View style={styles.container} >
-        <Text> Profile Section </Text>
+      <Text>
+      Profile Section
+      </Text>
       </View>
     );
   }
 }
 
-class socialSection extends Component {
+// Tab navigator section //
+class SocialSection extends Component {
+  render() {
+    return (
+      // imported WitnessSessionRoute component 
+        <WitnessSessionRoute />
+    );
+  }
+}
+
+class SettingsSection extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text> Social Section </Text>
+        <Text> Settings Section </Text>
       </View>
     );
   }
 }
 
 export default createBottomTabNavigator({
-  home:{screen: App},
-  profile:{screen: profileSection},
-  social:{screen: socialSection},
-  test:{screen: Test}  
+  Profile :{screen: App},
+  Social:{screen: SocialSection},
+  Settings:{screen: SettingsSection},
 
-})
-
+});
 
 
+// styles for above component
 const styles = StyleSheet.create({
   container: {
     flex: 1,
