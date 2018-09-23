@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity, Text, View } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 const SessionType = () => {
@@ -7,12 +7,25 @@ const SessionType = () => {
       Actions.WriteWitnessSession()
    }
    return (
+       <View>
+      
       <TouchableOpacity onPress = {goToSocialSection}>
          <Text>Auto incident</Text>
-         <Text>Assault</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress = {goToSocialSection}>
+        <Text>Assault</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress = {goToSocialSection}>
          <Text>Robbery</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress = {goToSocialSection}>
          <Text>Natural disasters </Text>
       </TouchableOpacity>
+      
+      </View>
    )
 }
 export default SessionType;

@@ -1,8 +1,33 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 class WriteWitnessSession extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      currentlyWritten:'',
+      arrayPosts:[],
+    }
+  }
+
+  goBackToSocialSection = () => { Actions.SocialSection() }
+
+  onCancelButton = () => {
+    Alert.alert(
+        'Are you sure',
+        '',
+        [
+          {text: 'Yes', onPress: () => this.goBackToSocialSection()},
+          {text: 'No',  style: 'cancel'},
+        ],
+        { cancelable: false }
+      )
+}
+
+onPostButton = () => {
+  alert('ss')
+}
 
   render() {
     return (
@@ -20,6 +45,24 @@ class WriteWitnessSession extends Component {
         numberOfLines={10}
         multiline={true}
         />
+      </View>
+
+
+      <View>
+      <TouchableOpacity onPress = { this.onPostButton } >
+      <Text>
+      Post
+      </Text>
+      </TouchableOpacity>
+      </View>
+      
+
+      <View>
+      <TouchableOpacity onPress = { this.onCancelButton } >
+      <Text>
+      Cancel
+      </Text>
+      </TouchableOpacity>
       </View>
 
       </View>
