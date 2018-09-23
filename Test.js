@@ -3,13 +3,14 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import { Actions } from 'react-native-router-flux';
+// import { Actions } from 'react-native-router-flux';
 
+onPressStart = () => {
+    alert('ss')
+}
 
 const Test = () => {
-    onPressStart = () => {
-        alert('ss')
-    }
+    
     return (
         <View >
         <TouchableOpacity onPress={onPressStart}>

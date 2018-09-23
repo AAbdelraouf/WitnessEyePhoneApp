@@ -3,10 +3,7 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 import WitnessSessionRoute from './WitnessSessionRoute.js'
 import { createBottomTabNavigator } from 'react-navigation';
 
-import { Actions } from 'react-native-router-flux';
-
 const App = () => {
-
     return (
       // imported WitnessSessionRoute
       <View style={styles.container} >
