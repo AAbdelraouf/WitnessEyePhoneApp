@@ -1,18 +1,28 @@
-import React from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import React, { Component } from 'react';
+import { TouchableOpacity, Text, View, StyleSheet, TextInput } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-const SocialSection = () => {
 
-   const goToSettingsSection = () => {
+class SocialSection extends Component {
+
+   goToSettingsSection = () => {
       Actions.WitnessType()
    }
+   render(){
+    return (
+    <View>
 
-   return (
-      <TouchableOpacity onPress = {goToSettingsSection}>
-         <Text>+ Start witness session</Text>
-      </TouchableOpacity>
-   )
+        <View>
+        <TouchableOpacity onPress = {this.goToSettingsSection}>
+           <Text>+ Start witness session</Text>
+        </TouchableOpacity>
+        </View>
+        
+    </View>
+     )
+   }
 }
+
+
 
 export default SocialSection;

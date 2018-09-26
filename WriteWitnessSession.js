@@ -15,8 +15,7 @@ class WriteWitnessSession extends Component {
 
   onCancelButton = () => {
     Alert.alert(
-        'Are you sure',
-        '',
+        'Are you sure', '',
         [
           {text: 'Yes', onPress: () => this.goBackToSocialSection()},
           {text: 'No',  style: 'cancel'},
@@ -26,15 +25,24 @@ class WriteWitnessSession extends Component {
 }
 
 onPostButton = () => {
-  alert('ss')
+ currentValueFromState = this.state.currentlyWritten
+
+ currentValueFromState === '' ? alert('Empty') 
+ :
+this.setState({arrayPosts: [...this.state.arrayPosts, currentValueFromState] });
+this.setState({currentlyWritten: ''})
+
 }
 
   render() {
     return (
       <View>
+
+      <View>
         <Text>
         Write your testimony below
         </Text>
+        </View>
 
       <View style={styles.textAreaContainer} >
         <TextInput
@@ -44,9 +52,12 @@ onPostButton = () => {
         placeholderTextColor="grey"
         numberOfLines={10}
         multiline={true}
+        value = {this.state.currentlyWritten}
+        onChangeText={(inputValue) => this.setState({currentlyWritten: inputValue})}
         />
       </View>
 
+      
 
       <View>
       <TouchableOpacity onPress = { this.onPostButton } >
@@ -64,6 +75,21 @@ onPostButton = () => {
       </Text>
       </TouchableOpacity>
       </View>
+
+
+      {this.state.arrayPosts.map((item) => (
+          <TouchableOpacity key = {item}>
+                     
+            <Text>
+              {item}
+            </Text>
+
+          </TouchableOpacity>
+        ))}
+        
+        <View>
+        {/* <Test test='Ahmed Test!' /> */}
+        </View>
 
       </View>
     );
