@@ -11,7 +11,9 @@ class PropsTest extends Component {
   render() {
     return (
       <View>
-        
+        <Text>
+          {this.props.test}
+          </Text>
       </View>
     );
   }
