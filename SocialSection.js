@@ -15,10 +15,6 @@ class SocialSection extends Component {
         <TouchableOpacity onPress = {this.goToSettingsSection}>
            <Text>+ Start witness session</Text>
         </TouchableOpacity>
-
-        <TouchableOpacity>
-        <Text>Just a test!</Text>
-        </TouchableOpacity>
         </View>
         
     </View>
