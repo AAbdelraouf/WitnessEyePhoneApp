@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { TouchableOpacity, Text, View, StyleSheet, TextInput } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-
 class SocialSection extends Component {
 
    goToSettingsSection = () => {
@@ -16,13 +15,15 @@ class SocialSection extends Component {
         <TouchableOpacity onPress = {this.goToSettingsSection}>
            <Text>+ Start witness session</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity>
+        <Text>Just a test!</Text>
+        </TouchableOpacity>
         </View>
         
     </View>
      )
    }
 }
-
-
 
 export default SocialSection;
