@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
+import Firebase from './Firebase.js';
+
+import SendDataToFirebase from './SendDataToFirebase.js';
+
 class WriteWitnessSession extends Component {
   constructor(props){
     super(props);
@@ -9,11 +13,15 @@ class WriteWitnessSession extends Component {
       currentlyWritten:'',
       arrayPosts:[],
     }
+    
+    this.goBackToSocialSection = this.goBackToSocialSection.bind(this)
+    this.onCancelButton = this.onCancelButton.bind(this)
+    this.onPostButton = this.onPostButton.bind(this)
   }
 
-  goBackToSocialSection = () => { Actions.SocialSection() }
+goBackToSocialSection = () => { Actions.SocialSection() }
 
-  onCancelButton = () => {
+onCancelButton = () => {
     Alert.alert(
         'Are you sure', '',
         [
@@ -25,10 +33,11 @@ class WriteWitnessSession extends Component {
 }
 
 onPostButton = () => {
- currentValueFromState = this.state.currentlyWritten
-
- currentValueFromState === '' ? alert('Empty') 
- :
+currentValueFromState = this.state.currentlyWritten
+// Checking if value is empty
+currentValueFromState === '' ? alert('Empty') :
+// If not, 
+// Grab data from firebase to the state
 this.setState({arrayPosts: [...this.state.arrayPosts, currentValueFromState] });
 this.setState({currentlyWritten: ''})
 
@@ -57,8 +66,6 @@ this.setState({currentlyWritten: ''})
         />
       </View>
 
-      
-
       <View>
       <TouchableOpacity onPress = { this.onPostButton } >
       <Text>
@@ -74,22 +81,14 @@ this.setState({currentlyWritten: ''})
       Cancel
       </Text>
       </TouchableOpacity>
+
+
+
+      <SendDataToFirebase sendTestimonyToFirebase = {this.state.arrayPosts} />
+      
+
       </View>
 
-
-      {this.state.arrayPosts.map((item) => (
-          <TouchableOpacity key = {item}>
-                     
-            <Text>
-              {item}
-            </Text>
-
-          </TouchableOpacity>
-        ))}
-        
-        <View>
-        {/* <Test test='Ahmed Test!' /> */}
-        </View>
 
       </View>
     );
