@@ -2,15 +2,42 @@ import React, { Component } from 'react';
 import {View, Text, Button } from 'react-native';
 
 import WriteWitnessSession from './WriteWitnessSession.js';
-
 import Firebase from './Firebase.js';
+import { throws } from 'assert';
 
 class SendDataToFirebase extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         dataFromSession : this.props.writtenSession
-    //       }
+    constructor(props) {
+        super(props);
+        this.state = {
+            dataFromSession : '',
+    
+          }
+    
+    }
+    
+
+    // componentDidUpdate(prevProps) {
+    //     if(prevProps.myProps !== this.props.myProp) {
+    //         this.setState({ dataFromSession :"" })
+    //       // this.props.myProp has a different value
+    //       // ...
+    //     }
+    //   }
+
+
+    componentDidUpdate(prevProps) {
+        // Typical usage (don't forget to compare props):
+        if (this.props.finalTestimonyTyped !== prevProps.finalTestimonyTyped) {
+        //   this.fetchData(this.props.finalTestimonyTyped);
+        alert(this.props.finalTestimonyTyped)
+        }
+      }
+    
+
+    // componentWillReceiveProps(nextrops) {
+    //     alert('componentWillReceiveProps', nextrops);
+    //     this.setState({ dataFromSession : nextrops })
+        
     // }
 
     // componentWillReceiveProps(){
@@ -18,6 +45,8 @@ class SendDataToFirebase extends Component {
     // }
 
     render() { 
+        
+
         // var DataFromWriteWitnessSession = this.props.sendTestimonyToFirebase
         // // Send Data to firebase 
         // Firebase.database().ref('Users/').push({  
@@ -34,9 +63,8 @@ class SendDataToFirebase extends Component {
         return ( 
             <View>
                 
-                { this.props.writtenSession.map((item, keyz)=>( <Text key={keyz}> { item } </Text> )) 
-            }
-                
+    { this.props.finalTestimonyTyped.map((item, keyz)=>( <Text key={keyz}> { item } </Text> )) }
+
                 </View>
          );
     }

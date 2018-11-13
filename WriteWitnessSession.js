@@ -11,7 +11,6 @@ class WriteWitnessSession extends Component {
     this.state={
       currentlyWritten:'',
       arrayPosts:[1],
-
     }
     
     this.goBackToSocialSection = this.goBackToSocialSection.bind(this)
@@ -82,7 +81,7 @@ this.setState({currentlyWritten: ''})
       </Text>
       </TouchableOpacity>
 
-      <SendDataToFirebase writtenSession = {this.state.arrayPosts} />
+      <SendDataToFirebase finalTestimonyTyped = {this.state.arrayPosts} />
       
       </View>
 
