@@ -3,7 +3,6 @@ import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from 'reac
 import { Actions } from 'react-native-router-flux';
 
 import Firebase from './Firebase.js';
-
 import SendDataToFirebase from './SendDataToFirebase.js';
 
 class WriteWitnessSession extends Component {
@@ -11,7 +10,8 @@ class WriteWitnessSession extends Component {
     super(props);
     this.state={
       currentlyWritten:'',
-      arrayPosts:[],
+      arrayPosts:[1],
+
     }
     
     this.goBackToSocialSection = this.goBackToSocialSection.bind(this)
@@ -82,11 +82,8 @@ this.setState({currentlyWritten: ''})
       </Text>
       </TouchableOpacity>
 
-
-
-      <SendDataToFirebase sendTestimonyToFirebase = {this.state.arrayPosts} />
+      <SendDataToFirebase writtenSession = {this.state.arrayPosts} />
       
-
       </View>
 
 
@@ -96,7 +93,6 @@ this.setState({currentlyWritten: ''})
 }
 
 export default WriteWitnessSession;
-
 
 const styles = StyleSheet.create({
   textAreaContainer: {
