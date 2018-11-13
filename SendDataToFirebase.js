@@ -3,7 +3,6 @@ import {View, Text, Button } from 'react-native';
 
 import WriteWitnessSession from './WriteWitnessSession.js';
 import Firebase from './Firebase.js';
-import { throws } from 'assert';
 
 class SendDataToFirebase extends Component {
     constructor(props) {
