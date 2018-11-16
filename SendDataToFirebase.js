@@ -8,10 +8,11 @@ class SendDataToFirebase extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dataFromSession : '',
-    
+            dataFromSession : this.props.finalTestimonyTyped,
+            arrayOfData : []
           }
-    
+
+          this.sendDataOut = this.sendDataOut.bind(this)
     }
     
 
@@ -24,11 +25,28 @@ class SendDataToFirebase extends Component {
     //   }
 
 
+    sendDataOut = () => {
+    // // Send Data to firebase 
+    Firebase.database().ref('Users/').set({  
+        finalTestimony: this.state.dataFromSession
+    }).then((data) => {
+      //success callback
+      console.log('data ' , data)
+      alert("Sent to firebase!")
+    }).catch((error)=>{
+      //error callback
+      console.log('error ' , error)
+    })
+    }
+    
     componentDidUpdate(prevProps) {
         // Typical usage (don't forget to compare props):
         if (this.props.finalTestimonyTyped !== prevProps.finalTestimonyTyped) {
-        //   this.fetchData(this.props.finalTestimonyTyped);
-        alert(this.props.finalTestimonyTyped)
+        // alert(this.props.finalTestimonyTyped)
+        this.setState({arrayOfData : [...this.state.arrayOfData, this.props.finalTestimonyTyped]  })
+        // this.setState({arrayPosts  : [...this.state.arrayPosts, currentValueFromState] });
+        alert("arrayOfData is: " + this.state.arrayOfData)
+        // this.sendDataOut()
         }
       }
     
@@ -62,7 +80,7 @@ class SendDataToFirebase extends Component {
         return ( 
             <View>
                 
-    { this.props.finalTestimonyTyped.map((item, keyz)=>( <Text key={keyz}> { item } </Text> )) }
+        { this.state.dataFromSession.map((item, keyz)=>( <Text key={keyz}> { item } </Text> )) }
 
                 </View>
          );

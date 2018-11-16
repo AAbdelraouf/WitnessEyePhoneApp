@@ -82,6 +82,7 @@ this.setState({currentlyWritten: ''})
       </TouchableOpacity>
 
       <SendDataToFirebase finalTestimonyTyped = {this.state.arrayPosts} />
+      {/* <SendDataToFirebase /> */}
       
       </View>
 
