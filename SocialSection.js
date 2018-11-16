@@ -5,7 +5,7 @@ import { Actions } from 'react-native-router-flux';
 class SocialSection extends Component {
 
    goToSettingsSection = () => {
-      Actions.WitnessType()
+      Actions.CaseType()
    }
    render(){
     return (

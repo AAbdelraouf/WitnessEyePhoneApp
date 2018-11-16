@@ -10,15 +10,26 @@ class WriteWitnessSession extends Component {
     super(props);
     this.state={
       currentlyWritten:'',
-      arrayPosts:[1],
+      finalizedTestimony:"",
     }
     
     this.goBackToSocialSection = this.goBackToSocialSection.bind(this)
     this.onCancelButton = this.onCancelButton.bind(this)
     this.onPostButton = this.onPostButton.bind(this)
+
+    // this.returnTest = this.returnTest.bind(this)
   }
 
 goBackToSocialSection = () => { Actions.SocialSection() }
+
+onPostButton = () => {
+  currentValueFromState = this.state.currentlyWritten
+  // Checking if value is empty
+  currentValueFromState === '' ? alert('Empty') :
+  // this.setState({finalizedTestimony: [...this.state.finalizedTestimony, currentValueFromState] });
+  this.setState({finalizedTestimony :  currentValueFromState });
+  this.setState({currentlyWritten: ''})
+}
 
 onCancelButton = () => {
     Alert.alert(
@@ -31,16 +42,11 @@ onCancelButton = () => {
       )
 }
 
-onPostButton = () => {
-currentValueFromState = this.state.currentlyWritten
-// Checking if value is empty
-currentValueFromState === '' ? alert('Empty') :
-// If not, 
-// Grab data from firebase to the state
-this.setState({arrayPosts: [...this.state.arrayPosts, currentValueFromState] });
-this.setState({currentlyWritten: ''})
 
-}
+// returnTest = () => {
+//   if( 1 > 10 ) { return <View><Text>One</Text></View> }
+//           else { return <View><Text>Two</Text></View> }
+//   }
 
   render() {
     return (
@@ -58,7 +64,7 @@ this.setState({currentlyWritten: ''})
         underlineColorAndroid="transparent"
         placeholder="Type something"
         placeholderTextColor="grey"
-        numberOfLines={10}
+        numberOfLines={100}
         multiline={true}
         value = {this.state.currentlyWritten}
         onChangeText={(inputValue) => this.setState({currentlyWritten: inputValue})}
@@ -80,12 +86,11 @@ this.setState({currentlyWritten: ''})
       Cancel
       </Text>
       </TouchableOpacity>
-
-      <SendDataToFirebase finalTestimonyTyped = {this.state.arrayPosts} />
-      {/* <SendDataToFirebase /> */}
+  
+      <SendDataToFirebase finalTestimonyTyped = {this.state.finalizedTestimony} />
       
+      {/* {this.returnTest()} */}
       </View>
-
 
       </View>
     );

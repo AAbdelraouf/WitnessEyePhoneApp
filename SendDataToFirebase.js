@@ -8,31 +8,17 @@ class SendDataToFirebase extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            ChooseCaseType  : this.props.caseType,
             dataFromSession : this.props.finalTestimonyTyped,
-            arrayOfData : []
           }
-
           this.sendDataOut = this.sendDataOut.bind(this)
     }
-    
 
-    // componentDidUpdate(prevProps) {
-    //     if(prevProps.myProps !== this.props.myProp) {
-    //         this.setState({ dataFromSession :"" })
-    //       // this.props.myProp has a different value
-    //       // ...
-    //     }
-    //   }
-
-
-    sendDataOut = () => {
-    // // Send Data to firebase 
-    Firebase.database().ref('Users/').set({  
-        finalTestimony: this.state.dataFromSession
-    }).then((data) => {
-      //success callback
-      console.log('data ' , data)
-      alert("Sent to firebase!")
+    sendDataOut = (dataParam) => {
+    // Send Data to firebase 
+    Firebase.database().ref('Users/John').push({  
+        finalTestimony :  dataParam,
+        // caseTypeTest   :  caseTypeData
     }).catch((error)=>{
       //error callback
       console.log('error ' , error)
@@ -43,44 +29,33 @@ class SendDataToFirebase extends Component {
         // Typical usage (don't forget to compare props):
         if (this.props.finalTestimonyTyped !== prevProps.finalTestimonyTyped) {
         // alert(this.props.finalTestimonyTyped)
-        this.setState({arrayOfData : [...this.state.arrayOfData, this.props.finalTestimonyTyped]  })
+        // this.setState({arrayOfData : [...this.state.arrayOfData, this.props.finalTestimonyTyped]  })
         // this.setState({arrayPosts  : [...this.state.arrayPosts, currentValueFromState] });
-        alert("arrayOfData is: " + this.state.arrayOfData)
-        // this.sendDataOut()
+        // alert("arrayOfData is: " + this.state.dataFromSession)
+        this.sendDataOut(this.props.finalTestimonyTyped)
         }
       }
-    
 
-    // componentWillReceiveProps(nextrops) {
-    //     alert('componentWillReceiveProps', nextrops);
-    //     this.setState({ dataFromSession : nextrops })
-        
-    // }
-
-    // componentWillReceiveProps(){
-    //     alert('Props received')
-    // }
+    //   componentDidUpdate(prevProps) {
+    //     alert(this.state.dataFromSession)
+        // only update chart if the data has changed
+        // if (prevProps.finalTestimonyTyped !== this.props.finalTestimonyTyped) {
+            // this.setState({ arrayOfData : [...this.state.arrayOfData, this.props.finalTestimonyTyped] })
+            // alert(this.state.arrayOfData)
+            // this.sendDataOut()
+        //   alert("Previous data " + prevProps.finalTestimonyTyped  + " New propps " + this.props.finalTestimonyTyped)
+        // }
+    //   }
 
     render() { 
-        
-
-        // var DataFromWriteWitnessSession = this.props.sendTestimonyToFirebase
-        // // Send Data to firebase 
-        // Firebase.database().ref('Users/').push({  
-        //     finalTestimony: DataFromWriteWitnessSession
-        // }).then((data) => {
-        //   //success callback
-        //   console.log('data ' , data)
-        //   alert("Sent to firebase!")
-        // }).catch((error)=>{
-        //   //error callback
-        //   console.log('error ' , error)
-        // })
         
         return ( 
             <View>
                 
-        { this.state.dataFromSession.map((item, keyz)=>( <Text key={keyz}> { item } </Text> )) }
+        {/* { this.state.dataFromSession.map((item, keyz)=>( <Text key={keyz}> { item } </Text> )) } */}
+        {/* <Text>
+        { this.state.ChooseCaseType }
+        </Text> */}
 
                 </View>
          );
