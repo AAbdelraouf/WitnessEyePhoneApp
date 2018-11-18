@@ -8,7 +8,7 @@ class SendDataToFirebase extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ChooseCaseType  : this.props.caseType,
+            // ChooseCaseType  : this.props.caseType,
             dataFromSession : this.props.finalTestimonyTyped,
           }
           this.sendDataOut = this.sendDataOut.bind(this)
@@ -16,7 +16,7 @@ class SendDataToFirebase extends Component {
 
     sendDataOut = (dataParam) => {
     // Send Data to firebase 
-    Firebase.database().ref('Users/John').push({  
+    Firebase.database().ref('Users/User').push({  
         finalTestimony :  dataParam,
         // caseTypeTest   :  caseTypeData
     }).catch((error)=>{

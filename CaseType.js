@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, Text, View } from 'react-native';
+import { TouchableOpacity, Text, View, TouchableHighlight } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 import SendDataToFirebase from './SendDataToFirebase.js'
@@ -16,19 +16,19 @@ class CaseType extends React.Component {
      };
 
     this.goToSocialSection = this.goToSocialSection.bind(this);
-    this.begin = this.begin.bind(this);
+    // this.returnTest        = this.returnTest.bind(this);
+
   }
+
+// returnTest = () => {
+//   if (1 < 10) { return <View>{ <SendDataToFirebase caseType ="CaseTypeTest!" /> }</View> }
+//          else { return <View><Text>No it is not</Text></View> }
+// };
 
 goToSocialSection = () => {
     Actions.WriteWitnessSession()
     // return <SendDataToFirebase caseType ="Case type" />
  }
-
- begin = () => {
-  alert(this.props.caseType);
-}
-
-
 
   render() { 
     return ( 
@@ -50,7 +50,10 @@ goToSocialSection = () => {
          <Text>{this.state.NaturalDisasters}</Text>
       </TouchableOpacity>
 
-      {/* <SendDataToFirebase caseType ="Case type" /> */}
+
+      <SendDataToFirebase caseType ="Casetype" />
+
+      {/* {this.returnTest()} */}
       
       </View>
      );
