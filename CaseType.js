@@ -4,7 +4,6 @@ import { Actions } from 'react-native-router-flux';
 
 import SendDataToFirebase from './SendDataToFirebase.js'
 
-
 class CaseType extends React.Component {
   constructor(props) {
     super(props);
@@ -19,11 +18,6 @@ class CaseType extends React.Component {
     // this.returnTest        = this.returnTest.bind(this);
 
   }
-
-// returnTest = () => {
-//   if (1 < 10) { return <View>{ <SendDataToFirebase caseType ="CaseTypeTest!" /> }</View> }
-//          else { return <View><Text>No it is not</Text></View> }
-// };
 
 goToSocialSection = () => {
     Actions.WriteWitnessSession()
@@ -61,3 +55,42 @@ goToSocialSection = () => {
 }
  
 export default CaseType;
+
+// import React, { Component } from 'react';
+// import { View, Text, Picker, StyleSheet } from 'react-native'
+
+// class PickerExample extends Component {
+//    constructor(props){
+//        super(props);
+//        this.state = { stateUser: '' }
+
+//        this.updateUser = this.updateUser.bind(this)
+//    }
+   
+    
+//    updateUser = (user) => {
+//       this.setState({ stateUser: user })
+//    }
+
+//    render() {
+//       return (
+//          <View>
+//             <Picker selectedValue = {this.state.user} onValueChange = {this.updateUser}>
+//                <Picker.Item label = "Steve" value = "steve" />
+//                <Picker.Item label = "Ellen" value = "ellen" />
+//                <Picker.Item label = "Maria" value = "maria" />
+//             </Picker>
+//             <Text style = {styles.text}>{this.state.stateUser}</Text>
+//          </View>
+//       )
+//    }
+// }
+// export default PickerExample
+
+// const styles = StyleSheet.create({
+//    text: {
+//       fontSize: 30,
+//       alignSelf: 'center',
+//       color: 'red'
+//    }
+// })
