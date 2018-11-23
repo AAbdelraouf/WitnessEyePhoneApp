@@ -4,6 +4,7 @@ import WitnessSessionRoute from './WitnessSessionRoute.js'
 import { createBottomTabNavigator } from 'react-navigation';
 
 const App = () => {
+
     return (
       // imported WitnessSessionRoute
       <View style={styles.container} >

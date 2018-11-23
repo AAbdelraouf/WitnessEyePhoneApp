@@ -17,11 +17,9 @@ class WriteWitnessSession extends Component {
     this.onCancelButton = this.onCancelButton.bind(this)
     this.onPostButton = this.onPostButton.bind(this)
 
-    // this.returnTest = this.returnTest.bind(this);
-      //  this.returnTest = this.returnTest.bind(this);
   }
 
-goBackToSocialSection = () => { Actions.SocialSection() }
+goBackToSocialSection = () => { Actions.SocialSection }
 
 onPostButton = () => {
   currentValueFromState = this.state.currentlyWritten
@@ -42,16 +40,6 @@ onCancelButton = () => {
         { cancelable: false }
       )
 }
-
-// returnTest = () => {
-//   if (1 < 10) { return <View><Text>Correct</Text></View> }
-//          else { return <View><Text>No it is not</Text></View> }
-// };
-
-// returnTest = () => {
-//   if( 1 > 10 ) { return <View><Text>One</Text></View> }
-//           else { return <View><Text>Two</Text></View> }
-//   };
 
   render() {
     return (
@@ -93,7 +81,6 @@ onCancelButton = () => {
       </TouchableOpacity>
   
       <SendDataToFirebase finalTestimonyTyped = {this.state.finalizedTestimony} />
-      {/* {this.returnTest()} */}
       
       </View>
 
