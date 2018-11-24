@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, Text, View, StyleSheet, TextInput } from 'react-native';
+import { TouchableOpacity, Text, Button, View, StyleSheet, TextInput } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 // import SendDataToFirebase from './SendDataToFirebase.js';
@@ -25,8 +25,8 @@ goToSettingsSection = () => {
     <View>
 
         <View>
-        <TouchableOpacity onPress = {this.goToSettingsSection}>
-           <Text>+ Start witness session</Text>
+        <TouchableOpacity >
+           <Button title = "+ Start witness session" onPress = {this.goToSettingsSection} > </Button >
         </TouchableOpacity>
 
         </View>

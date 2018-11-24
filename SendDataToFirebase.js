@@ -11,7 +11,7 @@ class SendDataToFirebase extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ChooseCaseType  : this.props.caseType,
+            ChooseCaseType  : this.props.selectedCaseType,
             dataFromSession : this.props.finalTestimonyTyped,
             SocialTest      : this.props.SocialTest
                
@@ -69,9 +69,9 @@ class SendDataToFirebase extends Component {
                 
         {/* { this.state.dataFromSession.map((item, keyz)=>( <Text key={keyz}> { item } </Text> )) } */}
         
-        <Text>
-            {this.state.caseType}
-        </Text>
+        {/* <Text>
+            {this.state.ChooseCaseType}
+        </Text> */}
         
                 </View>
          );

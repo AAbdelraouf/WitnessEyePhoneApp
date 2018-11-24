@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, Text, View, TouchableHighlight } from 'react-native';
+import { TouchableOpacity, Text, Button, View, TouchableHighlight } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 import SendDataToFirebase from './SendDataToFirebase.js'
@@ -11,41 +11,43 @@ class CaseType extends React.Component {
       AutoAccident : "Auto",
       Assault : "Assault",
       Robbery : "Robbery",
-      NaturalDisasters : "Natural Distasters"
+      NaturalDisasters : "Natural Distasters",
+      clickedElement : ""
      };
 
     this.goToSocialSection = this.goToSocialSection.bind(this);
-    // this.returnTest        = this.returnTest.bind(this);
+    // this.buttonClickListener = this.buttonClickListener.bind(this);
 
   }
 
-goToSocialSection = () => {
-    Actions.WriteWitnessSession()
-    // return <SendDataToFirebase caseType ="Case type" />
+goToSocialSection = (cElement) => {
+    Actions.WriteWitnessSession();
+
+    this.setState({ clickedElement: cElement });
+    alert(this.state.clickedElement)
  }
 
   render() { 
     return ( 
       <View>
       
-      <TouchableOpacity onPress = {this.goToSocialSection}>
-         <Text>{this.state.AutoAccident}</Text>
+      <TouchableOpacity >
+         <Button  title = {this.state.AutoAccident}  onPress = { this.goToSocialSection } > </Button>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress = {this.goToSocialSection}>
-        <Text>{this.state.Assault}</Text>
+      <TouchableOpacity >
+        <Button title = {this.state.Assault} onPress = {this.goToSocialSection} > </Button>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress = {this.goToSocialSection}>
-         <Text>{this.state.Robbery}</Text>
+      <TouchableOpacity >
+         <Button title = {this.state.Robbery} onPress = {this.goToSocialSection} > </Button>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress = {this.goToSocialSection}>
-         <Text>{this.state.NaturalDisasters}</Text>
+      <TouchableOpacity >
+         <Button title = {this.state.NaturalDisasters} onPress = {this.goToSocialSection} > </Button>
       </TouchableOpacity>
 
-
-      <SendDataToFirebase caseType ="Casetype" />
+      <SendDataToFirebase selectedCaseType ="Casetype" />
 
       {/* {this.returnTest()} */}
       
