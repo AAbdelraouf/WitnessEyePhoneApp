@@ -4,6 +4,8 @@ import { Actions } from 'react-native-router-flux';
 
 // import SendDataToFirebase from './SendDataToFirebase.js';
 
+import Firebase from './Firebase.js';
+
 class SocialSection extends Component {
 
 constructor(props){
@@ -12,12 +14,14 @@ constructor(props){
     this.state = {
             propsToSendDataToFirebase: this.createSessionInState
         }
+
+
     // this.createSessionInState = this.createSessionInState.bind(this);
     this.goToSettingsSection  = this.goToSettingsSection.bind(this);
 }
 
 goToSettingsSection = () => {
-      Actions.CaseType()
+      Actions.CaseType();
    }
 
    render(){

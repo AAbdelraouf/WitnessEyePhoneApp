@@ -4,6 +4,8 @@ import { Actions } from 'react-native-router-flux';
 
 import SendDataToFirebase from './SendDataToFirebase.js'
 
+import Firebase from './Firebase.js';
+
 class CaseType extends React.Component {
   constructor(props) {
     super(props);
@@ -12,7 +14,7 @@ class CaseType extends React.Component {
       Assault : "Assault",
       Robbery : "Robbery",
       NaturalDisasters : "Natural Distasters",
-      clickedElement : ""
+      clickedElement : "TestOne!"
      };
 
     this.goToSocialSection = this.goToSocialSection.bind(this);
@@ -20,11 +22,12 @@ class CaseType extends React.Component {
 
   }
 
-goToSocialSection = (cElement) => {
+goToSocialSection = () => {
     Actions.WriteWitnessSession();
 
-    this.setState({ clickedElement: cElement });
-    alert(this.state.clickedElement)
+    // this.setState({ clickedElement: cElement });
+    // alert(this.state.clickedElement)
+
  }
 
   render() { 
@@ -32,7 +35,7 @@ goToSocialSection = (cElement) => {
       <View>
       
       <TouchableOpacity >
-         <Button  title = {this.state.AutoAccident}  onPress = { this.goToSocialSection } > </Button>
+         <Button  title = {this.state.AutoAccident} onPress={ this.goToSocialSection } > </Button>
       </TouchableOpacity>
 
       <TouchableOpacity >
@@ -49,7 +52,9 @@ goToSocialSection = (cElement) => {
 
       <SendDataToFirebase selectedCaseType ="Casetype" />
 
-      {/* {this.returnTest()} */}
+      <Text>
+        {this.state.clickedElement}
+        </Text>
       
       </View>
      );
