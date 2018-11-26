@@ -19,23 +19,31 @@ class CaseType extends React.Component {
 
     this.goToSocialSection = this.goToSocialSection.bind(this);
     // this.buttonClickListener = this.buttonClickListener.bind(this);
+    this.updateUser = this.updateUser.bind(this);
 
   }
 
-goToSocialSection = () => {
-    Actions.WriteWitnessSession();
-
-    // this.setState({ clickedElement: cElement });
-    // alert(this.state.clickedElement)
-
+  updateUser = (user) => {
+    this.setState({ clickedElement: user })
  }
 
+  goToSocialSection = () => {
+    Actions.WriteWitnessSession();
+    // ------------------------- //
+    this.setState({ clickedElement: "cElement" });
+    alert(this.state.clickedElement)
+}
+
+// selectedValue = {this.state.user} onValueChange = {this.updateUser}
+
+
   render() { 
+
     return ( 
       <View>
       
       <TouchableOpacity >
-         <Button  title = {this.state.AutoAccident} onPress={ this.goToSocialSection } > </Button>
+         <Button title = {this.state.AutoAccident} onPress = { (user) => this.updateUser(this.state.AutoAccident)}> </Button>
       </TouchableOpacity>
 
       <TouchableOpacity >
@@ -101,3 +109,32 @@ export default CaseType;
 //       color: 'red'
 //    }
 // })
+
+
+
+// alert = (msg) => {
+//   console.log(msg)
+// }
+
+// onDeleteBTN = () => {
+//   this.alert(' OnDelete')
+// }
+
+// render() {
+//   return (
+//     <View style={styles.container}>
+//       <Button
+//         title="Delete Record"
+//         onPress={() => Alert.alert(
+//           'Alert Title',
+//           'alertMessage',
+//           [
+//             {text: 'Cancel', onPress: () => console.log('Cancel Pressed!')},
+//             {text: 'OK', onPress: this.onDeleteBTN},
+//           ],
+//           { cancelable: false }
+//         )}
+//       />
+//     </View>
+//   );
+// }
