@@ -16,10 +16,9 @@ class WriteWitnessSession extends Component {
     this.goBackToSocialSection = this.goBackToSocialSection.bind(this)
     this.onCancelButton = this.onCancelButton.bind(this)
     this.onPostButton = this.onPostButton.bind(this)
-
   }
 
-goBackToSocialSection = () => { Actions.SocialSection }
+goBackToSocialSection = () => { Actions.SocialSection() }
 
 onPostButton = () => {
   currentValueFromState = this.state.currentlyWritten
@@ -37,7 +36,7 @@ onCancelButton = () => {
           {text: 'Yes', onPress: () => this.goBackToSocialSection()},
           {text: 'No',  style: 'cancel'},
         ],
-        { cancelable: false }
+        { cancelable: true }
       )
 }
 

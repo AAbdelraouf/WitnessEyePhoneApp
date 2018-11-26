@@ -14,28 +14,18 @@ class CaseType extends React.Component {
       Assault : "Assault",
       Robbery : "Robbery",
       NaturalDisasters : "Natural Distasters",
-      clickedElement : "TestOne!"
+      clickedElement : ""
      };
 
     this.goToSocialSection = this.goToSocialSection.bind(this);
-    // this.buttonClickListener = this.buttonClickListener.bind(this);
-    this.updateUser = this.updateUser.bind(this);
-
   }
 
-  updateUser = (user) => {
-    this.setState({ clickedElement: user })
- }
 
-  goToSocialSection = () => {
+  goToSocialSection = (cElement) => {
     Actions.WriteWitnessSession();
     // ------------------------- //
-    this.setState({ clickedElement: "cElement" });
-    alert(this.state.clickedElement)
+    this.setState({ clickedElement: cElement });
 }
-
-// selectedValue = {this.state.user} onValueChange = {this.updateUser}
-
 
   render() { 
 
@@ -43,64 +33,30 @@ class CaseType extends React.Component {
       <View>
       
       <TouchableOpacity >
-         <Button title = {this.state.AutoAccident} onPress = { (user) => this.updateUser(this.state.AutoAccident)}> </Button>
+         <Button title = {this.state.AutoAccident} onPress = {(cElement) => this.goToSocialSection(this.state.AutoAccident) }> </Button>
       </TouchableOpacity>
 
       <TouchableOpacity >
-        <Button title = {this.state.Assault} onPress = {this.goToSocialSection} > </Button>
+        <Button title = {this.state.Assault} onPress = {(cElement) => this.goToSocialSection(this.state.Assault)} > </Button>
       </TouchableOpacity>
 
       <TouchableOpacity >
-         <Button title = {this.state.Robbery} onPress = {this.goToSocialSection} > </Button>
+         <Button title = {this.state.Robbery} onPress = { (cElement) => this.goToSocialSection(this.state.Robbery)} > </Button>
       </TouchableOpacity>
 
       <TouchableOpacity >
-         <Button title = {this.state.NaturalDisasters} onPress = {this.goToSocialSection} > </Button>
+         <Button title = {this.state.NaturalDisasters} onPress = {(cElement) => this.goToSocialSection(this.state.NaturalDisasters)} > </Button>
       </TouchableOpacity>
 
-      <SendDataToFirebase selectedCaseType ="Casetype" />
+      <SendDataToFirebase selectedCaseType ={this.state.clickedElement} />
 
-      <Text>
-        {this.state.clickedElement}
-        </Text>
-      
+
       </View>
      );
   }
 }
  
 export default CaseType;
-
-// import React, { Component } from 'react';
-// import { View, Text, Picker, StyleSheet } from 'react-native'
-
-// class PickerExample extends Component {
-//    constructor(props){
-//        super(props);
-//        this.state = { stateUser: '' }
-
-//        this.updateUser = this.updateUser.bind(this)
-//    }
-   
-    
-//    updateUser = (user) => {
-//       this.setState({ stateUser: user })
-//    }
-
-//    render() {
-//       return (
-//          <View>
-//             <Picker selectedValue = {this.state.user} onValueChange = {this.updateUser}>
-//                <Picker.Item label = "Steve" value = "steve" />
-//                <Picker.Item label = "Ellen" value = "ellen" />
-//                <Picker.Item label = "Maria" value = "maria" />
-//             </Picker>
-//             <Text style = {styles.text}>{this.state.stateUser}</Text>
-//          </View>
-//       )
-//    }
-// }
-// export default PickerExample
 
 // const styles = StyleSheet.create({
 //    text: {

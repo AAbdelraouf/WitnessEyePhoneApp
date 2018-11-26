@@ -11,21 +11,15 @@ class SendDataToFirebase extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ChooseCaseType  : this.props.selectedCaseType,
-            dataFromSession : this.props.finalTestimonyTyped,
-            SocialTest      : this.props.SocialTest
-               
+            dataFromCreateTestimony      : this.props.data,
+            ChooseCaseType               : this.props.selectedCaseType,
+            dataFromSession              : this.props.finalTestimonyTyped
+            
           }
         //   this.sendDataOut = this.sendDataOut.bind(this)
     }
     
-    createSessionForum = this.props.createSessionForum
 
-    componentDidUpdate(prevProps){
-        if(this.props.createSessionForum !== prevProps.createSessionForum){
-            alert(this.props.createSessionForum)
-        }
-    }
 
     // sendDataOut = (dataParam) => {
     // // Send Data to firebase 
@@ -38,29 +32,23 @@ class SendDataToFirebase extends Component {
     // })
     // }
     
-    // componentDidUpdate(prevProps) {
+    componentDidUpdate(oldProps) {
         // Typical usage (don't forget to compare props):
-        // if (this.props.finalTestimonyTyped !== prevProps.finalTestimonyTyped) {
-        // alert(this.props.finalTestimonyTyped)
-        // this.setState({arrayOfData : [...this.state.arrayOfData, this.props.finalTestimonyTyped]  })
-        // this.setState({arrayPosts  : [...this.state.arrayPosts, currentValueFromState] });
-        // alert("arrayOfData is: " + this.state.dataFromSession)
-    //     this.sendDataOut(this.props.finalTestimonyTyped)
-    //     }
-    //   }
+        newProps = this.props
+        if (newProps.data !== oldProps.data) {
+        alert(newProps.data)
+        }
 
+        if (newProps.selectedCaseType !== oldProps.selectedCaseType) {
+            alert(newProps.selectedCaseType)
+        }
 
+        if (newProps.finalTestimonyTyped !== oldProps.finalTestimonyTyped) {
+            alert(newProps.finalTestimonyTyped)
+        }
 
-    //   componentDidUpdate(prevProps) {
-    //     alert(this.state.dataFromSession)
-        // only update chart if the data has changed
-        // if (prevProps.finalTestimonyTyped !== this.props.finalTestimonyTyped) {
-            // this.setState({ arrayOfData : [...this.state.arrayOfData, this.props.finalTestimonyTyped] })
-            // alert(this.state.arrayOfData)
-            // this.sendDataOut()
-        //   alert("Previous data " + prevProps.finalTestimonyTyped  + " New propps " + this.props.finalTestimonyTyped)
-        // }
-    //   }
+        // this.sendDataOut(this.props.data)
+      }
 
     render() { 
         
@@ -72,7 +60,13 @@ class SendDataToFirebase extends Component {
         {/* <Text>
             {this.state.ChooseCaseType}
         </Text> */}
-        
+
+
+
+        <Text>
+        {this.state.dataFromCreateTestimony}
+            </Text>
+
                 </View>
          );
     }
