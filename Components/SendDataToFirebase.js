@@ -17,10 +17,8 @@ class SendDataToFirebase extends Component {
 
             account_info :"edbraouf"
           }
-          this.sendDataOut = this.sendDataOut.bind(this)
-        
+          this.sendDataOut = this.sendDataOut.bind(this)   
     }
-    
 
      sendDataOut = (userInfo, testimonyType, testimonyText) => {
 
