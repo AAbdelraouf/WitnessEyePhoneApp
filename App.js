@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-import WitnessSessionRoute from './WitnessSessionRoute.js'
+import WitnessSessionRoute from './Components/WitnessSessionRoute.js';
 import { createBottomTabNavigator } from 'react-navigation';
 
 const App = () => {

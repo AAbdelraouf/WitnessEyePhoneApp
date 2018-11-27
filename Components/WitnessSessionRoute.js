@@ -2,7 +2,7 @@ import React from 'react';
 import { Router, Scene } from 'react-native-router-flux';
 import SocialSection from './SocialSection.js';
 import CaseType from './CaseType.js';
-import App from './App.js'
+import App from '../App.js'
 import WriteWitnessSession from './WriteWitnessSession.js';
 
 const WitnessSessionRoute = () => (

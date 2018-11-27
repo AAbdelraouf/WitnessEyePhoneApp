@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native'
 import * as firebase from "firebase";
-// var firebase = require("firebase");
 
 // Initialize Firebase
 var config = {

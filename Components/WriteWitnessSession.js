@@ -78,8 +78,10 @@ onCancelButton = () => {
       Cancel
       </Text>
       </TouchableOpacity>
-  
+      
+      
       <SendDataToFirebase finalTestimonyTyped = {this.state.finalizedTestimony} />
+      
       
       </View>
 

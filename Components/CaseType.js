@@ -37,7 +37,7 @@ class CaseType extends React.Component {
       </TouchableOpacity>
 
       <TouchableOpacity >
-        <Button title = {this.state.Assault} onPress = {(cElement) => this.goToSocialSection(this.state.Assault)} > </Button>
+        <Button title = {this.state.Assault} onPress = { (cElement) => this.goToSocialSection(this.state.Assault)} > </Button>
       </TouchableOpacity>
 
       <TouchableOpacity >
@@ -48,7 +48,7 @@ class CaseType extends React.Component {
          <Button title = {this.state.NaturalDisasters} onPress = {(cElement) => this.goToSocialSection(this.state.NaturalDisasters)} > </Button>
       </TouchableOpacity>
 
-      <SendDataToFirebase selectedCaseType ={this.state.clickedElement} />
+      <SendDataToFirebase selectedCaseType ={this.state.clickedElement + " selected"} />
 
 
       </View>

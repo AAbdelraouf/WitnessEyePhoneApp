@@ -13,22 +13,18 @@ constructor(props){
     
     this.state = {
             // propsToSendDataToFirebase: this.createSessionInState
-            StartForum: ""
+            startForum: ""
         }
 
 
-    this.createSessionInState = this.createSessionInState.bind(this);
-    // this.goToSettingsSection  = this.goToSettingsSection.bind(this);
+    // this.createSessionInState = this.createSessionInState.bind(this);
+    this.goToSettingsSection  = this.goToSettingsSection.bind(this);
 }
 
-createSessionInState = () => { 
-    // Actions.CaseType();
-    this.setState({ name:'Ahmed', age: 28 });
-    alert("Hi")
-}
+
 
 goToSettingsSection = () => {
-      this.setState({ StartForum : "start"  })
+      this.setState({ startForum : "LoggedIn + user info"  })
       Actions.CaseType();
    }
 
@@ -41,7 +37,7 @@ goToSettingsSection = () => {
            <Button title = "+ Start witness session" onPress = {this.goToSettingsSection} > </Button >
         </TouchableOpacity>
         
-        <SendDataToFirebase data = {this.state.StartForum} />
+        <SendDataToFirebase data = {this.state.startForum} />
 
 
         </View>
