@@ -16,15 +16,12 @@ constructor(props){
             startForum: ""
         }
 
-
     // this.createSessionInState = this.createSessionInState.bind(this);
     this.goToSettingsSection  = this.goToSettingsSection.bind(this);
 }
 
-
-
 goToSettingsSection = () => {
-      this.setState({ startForum : "LoggedIn + user info"  })
+      this.setState({ startForum : "Logged In + user_name"  })
       Actions.CaseType();
    }
 

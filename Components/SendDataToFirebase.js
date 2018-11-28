@@ -11,74 +11,49 @@ class SendDataToFirebase extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            dataFromCreateTestimony      : this.props.data,
-            ChooseCaseType               : this.props.selectedCaseType,
-            dataFromSession              : this.props.finalTestimonyTyped,
-
-            account_info :"edbraouf"
+            one:"",
+            two:"",
+            three:""
           }
           this.sendDataOut = this.sendDataOut.bind(this)   
     }
 
-     sendDataOut = (userInfo, testimonyType, testimonyText) => {
-
-        if (this.state.dataFromCreateTestimony &&
-            this.state.ChooseCaseType &&
-            this.state.dataFromSession === "" )
-            
-            { alert("Not yet"); }
-    
-        else{
-            alert("3 fields filled");
-            
-            // Send Data to firebase 
-            Firebase.database().ref(`Users/${this.state.account_info}`).push({  
-                "Testimony Text" : testimonyText,
-                "Testimony Type" : testimonyType,
-                "User Info"      : userInfo
-                
-                }).catch( (error) => {
-                //error callback
-                console.log('error ' , error)
-            })
-        }
+     sendDataOut = () => {
+        Firebase.database().ref(`Users/${this.state.one}`).set({
+            "One":   this.state.one,
+            "Two":   this.state.two,
+            "Three": this.state.three
+        })};
         
-        }
-
     componentDidUpdate(oldProps) {
     // Typical usage (don't forget to compare props):
         newProps = this.props
         
         if (newProps.data !== oldProps.data) {
-        alert(newProps.data)
-        this.setState({ dataFromCreateTestimony : newProps.data})
-        }
+            // alert(newProps.data)    
+            this.setState({ one: newProps.data })
+            alert("Added to state : " + newProps.data)
+            
+    }
         if (newProps.selectedCaseType !== oldProps.selectedCaseType) {
-            alert(newProps.selectedCaseType)
-            this.setState({ ChooseCaseType : newProps.selectedCaseType})
-        }
+            // alert(newProps.selectedCaseType)
+            this.setState({ two: newProps.selectedCaseType })
+            alert("Added to state : " + newProps.selectedCaseType)
+    }
 
         if (newProps.finalTestimonyTyped !== oldProps.finalTestimonyTyped) {
-            alert(newProps.finalTestimonyTyped)
-            this.setState({ dataFromSession : newProps.finalTestimonyTyped})
-            
-             dataFromCreateTestimony = this.state.dataFromCreateTestimony
-             ChooseCaseType          = this.state.ChooseCaseType
-             dataFromSession         = this.state.dataFromSession
-
-
-            //  this.props.data,
-            //  this.props.selectedCaseType,
-            //  this.props.finalTestimonyTyped,
-
-           this.sendDataOut("dataFromCreateTestimony", "ChooseCaseType", "dataFromSession")
-        }
-
+            // alert(newProps.finalTestimonyTyped)
+            this.setState({ three: newProps.finalTestimonyTyped })
+            alert("Added to state : " + newProps.finalTestimonyTyped)       
         
-
+        }
+        
       }
 
+
+
     render() { 
+
         
         return ( 
             <View>
@@ -91,19 +66,19 @@ class SendDataToFirebase extends Component {
 
 
         <Text>
-        {this.state.dataFromCreateTestimony}
+        {this.state.one}
         </Text>
         
         <Text>
-        {this.state.ChooseCaseType}
+        {this.state.two}
         </Text>
 
         <Text>
-        {this.state.dataFromSession}
+        {this.state.three}
         </Text>
 
+    </View>
 
-                </View>
          );
     }
 }

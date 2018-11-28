@@ -21,11 +21,11 @@ class WriteWitnessSession extends Component {
 goBackToSocialSection = () => { Actions.SocialSection() }
 
 onPostButton = () => {
-  currentValueFromState = this.state.currentlyWritten
+
   // Checking if value is empty
-  currentValueFromState === '' ? alert('Empty') :
-  // this.setState({finalizedTestimony: [...this.state.finalizedTestimony, currentValueFromState] });
-  this.setState({finalizedTestimony :  currentValueFromState });
+  this.state.currentlyWritten === '' ? alert('Empty') :
+  // this.setState({finalizedTestimony: [...this.state.finalizedTestimony, this.state.currentlyWritten] });
+  this.setState({finalizedTestimony :  this.state.currentlyWritten });
   this.setState({currentlyWritten: ''})
 }
 
@@ -58,7 +58,8 @@ onCancelButton = () => {
         placeholderTextColor="grey"
         numberOfLines={100}
         multiline={true}
-        value = {this.state.currentlyWritten}
+        // value = {this.state.currentlyWritten}
+        placeholder = {"Type your testimony herex"}
         onChangeText={(inputValue) => this.setState({currentlyWritten: inputValue})}
         />
       </View>
