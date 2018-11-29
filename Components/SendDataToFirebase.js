@@ -11,45 +11,41 @@ class SendDataToFirebase extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            one:"",
-            two:"",
-            three:""
+        
           }
           this.sendDataOut = this.sendDataOut.bind(this)   
     }
 
+    // `Users/${this.state.one}`
+
      sendDataOut = () => {
-        Firebase.database().ref(`Users/${this.state.one}`).set({
-            "One":   this.state.one,
-            "Two":   this.state.two,
-            "Three": this.state.three
-        })};
-        
-    componentDidUpdate(oldProps) {
-    // Typical usage (don't forget to compare props):
-        newProps = this.props
-        
-        if (newProps.data !== oldProps.data) {
-            // alert(newProps.data)    
-            this.setState({ one: newProps.data })
-            alert("Added to state : " + newProps.data)
+        Firebase.database().ref("Users/edbraouf").update({
             
-    }
-        if (newProps.selectedCaseType !== oldProps.selectedCaseType) {
-            // alert(newProps.selectedCaseType)
-            this.setState({ two: newProps.selectedCaseType })
-            alert("Added to state : " + newProps.selectedCaseType)
-    }
-
-        if (newProps.finalTestimonyTyped !== oldProps.finalTestimonyTyped) {
-            // alert(newProps.finalTestimonyTyped)
-            this.setState({ three: newProps.finalTestimonyTyped })
-            alert("Added to state : " + newProps.finalTestimonyTyped)       
+            ...this.state
+        })
+    };
         
+
+    componentDidUpdate(prevProps) {
+        // Typical usage (don't forget to compare props):
+        if (this.props.data !== prevProps.data) {
+            this.setState({ ...this.props })
         }
-        
-      }
+        // alert(this.state.one)
 
+        if(this.props.selectedCaseType !== prevProps.selectedCaseType) {
+            this.setState({ ...this.props })
+        }
+        // alert(this.state.two)
+
+        if(this.props.finalTestimonyTyped !== prevProps.finalTestimonyTyped) {
+            this.setState({ ...this.props })
+            
+        }
+        {this.sendDataOut()}
+        // alert(this.state.three)
+      }
+      
 
 
     render() { 

@@ -58,7 +58,7 @@ onCancelButton = () => {
         placeholderTextColor="grey"
         numberOfLines={100}
         multiline={true}
-        // value = {this.state.currentlyWritten}
+        value = {this.state.currentlyWritten}
         placeholder = {"Type your testimony herex"}
         onChangeText={(inputValue) => this.setState({currentlyWritten: inputValue})}
         />

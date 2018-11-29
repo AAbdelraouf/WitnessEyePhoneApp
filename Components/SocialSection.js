@@ -21,7 +21,7 @@ constructor(props){
 }
 
 goToSettingsSection = () => {
-      this.setState({ startForum : "Logged In + user_name"  })
+      this.setState({ startForum : "edbraouf"  })
       Actions.CaseType();
    }
 
