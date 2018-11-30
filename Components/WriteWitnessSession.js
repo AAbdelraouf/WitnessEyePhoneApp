@@ -27,6 +27,7 @@ onPostButton = () => {
   // this.setState({finalizedTestimony: [...this.state.finalizedTestimony, this.state.currentlyWritten] });
   this.setState({finalizedTestimony :  this.state.currentlyWritten });
   this.setState({currentlyWritten: ''})
+  this.goBackToSocialSection()
 }
 
 onCancelButton = () => {

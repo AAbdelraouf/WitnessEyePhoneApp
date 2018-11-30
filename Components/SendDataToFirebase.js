@@ -19,7 +19,7 @@ class SendDataToFirebase extends Component {
     // `Users/${this.state.one}`
 
      sendDataOut = () => {
-        Firebase.database().ref("Users/edbraouf").update({
+        Firebase.database().ref("Users/edbraouf/title").update({
             
             ...this.state
         })
