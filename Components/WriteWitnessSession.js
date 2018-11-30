@@ -23,11 +23,14 @@ goBackToSocialSection = () => { Actions.SocialSection() }
 onPostButton = () => {
 
   // Checking if value is empty
-  this.state.currentlyWritten === '' ? alert('Empty') :
-  // this.setState({finalizedTestimony: [...this.state.finalizedTestimony, this.state.currentlyWritten] });
-  this.setState({finalizedTestimony :  this.state.currentlyWritten });
+   
+  if(this.state.currentlyWritten !== ""){
+  this.setState({finalizedTestimony :  this.state.currentlyWritten })
   this.setState({currentlyWritten: ''})
   this.goBackToSocialSection()
+  }
+  // this.setState({finalizedTestimony: [...this.state.finalizedTestimony, this.state.currentlyWritten] });
+  
 }
 
 onCancelButton = () => {

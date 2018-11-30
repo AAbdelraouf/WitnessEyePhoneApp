@@ -10,70 +10,18 @@ import SocialSection from './SocialSection.js';
 class SendDataToFirebase extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-        
-          }
+        this.state = {}
           this.sendDataOut = this.sendDataOut.bind(this)   
     }
 
-    // `Users/${this.state.one}`
-
-     sendDataOut = () => {
-        Firebase.database().ref("Users/edbraouf/title").update({
-            
-            ...this.state
-        })
-    };
-        
-
-    componentDidUpdate(prevProps) {
-        // Typical usage (don't forget to compare props):
-        if (this.props.data !== prevProps.data) {
-            this.setState({ ...this.props })
-        }
-        // alert(this.state.one)
-
-        if(this.props.selectedCaseType !== prevProps.selectedCaseType) {
-            this.setState({ ...this.props })
-        }
-        // alert(this.state.two)
-
-        if(this.props.finalTestimonyTyped !== prevProps.finalTestimonyTyped) {
-            this.setState({ ...this.props })
-            
-        }
-        {this.sendDataOut()}
-        // alert(this.state.three)
-      }
+    sendDataOut = () => { Firebase.database().ref("Users/ahmedbas/title").update({ ...this.props })};
+    componentDidUpdate(prevProps) { {this.sendDataOut()} }
       
-
-
-    render() { 
-
-        
+    render() {   
         return ( 
             <View>
                 
-        {/* { this.state.dataFromSession.map((item, keyz)=>( <Text key={keyz}> { item } </Text> )) } */}
-        
-        {/* <Text>
-            {this.state.ChooseCaseType}
-        </Text> */}
-
-
-        <Text>
-        {this.state.one}
-        </Text>
-        
-        <Text>
-        {this.state.two}
-        </Text>
-
-        <Text>
-        {this.state.three}
-        </Text>
-
-    </View>
+            </View>
 
          );
     }

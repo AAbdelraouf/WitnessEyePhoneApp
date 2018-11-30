@@ -3,14 +3,12 @@ import { TouchableOpacity, Text, Button, View, StyleSheet, TextInput } from 'rea
 import { Actions } from 'react-native-router-flux';
 
 import SendDataToFirebase from './SendDataToFirebase.js';
-
+import RetrieveDataFromFirebase from './RetrieveDataFromFirebase.js';
 import Firebase from './Firebase.js';
 
 class SocialSection extends Component {
-
 constructor(props){
     super(props);
-    
     this.state = {
             // propsToSendDataToFirebase: this.createSessionInState
             startForum: ""
@@ -35,6 +33,7 @@ goToSettingsSection = () => {
         </TouchableOpacity>
         
         <SendDataToFirebase data = {this.state.startForum} />
+        
 
 
         </View>
