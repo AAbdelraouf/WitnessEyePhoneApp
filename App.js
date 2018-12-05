@@ -1,45 +1,17 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, TextInput, Button} from 'react-native';
+import {Platform, StyleSheet, Text, View} from 'react-native';
 import WitnessSessionRoute from './Components/WitnessSessionRoute.js';
 import { createBottomTabNavigator } from 'react-navigation';
 
-import Firebase from './Components/Firebase.js';
-
-
 
 class App extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {  }
-
-    this.SubmitNewUSer =  this.SubmitNewUSer.bind(this);
-  }
-
-  SubmitNewUSer = () => {  }
-
   render(){
     return (
       // imported WitnessSessionRoute
       <View style={styles.container} >
-      
-      
       <Text>
-      Profile Section, please sign up
+      Profile Section
       </Text>
-
-      <TextInput placeholder="email" style={{height: 40, width: 250, borderColor: 'gray', borderWidth: 1}} />
-      <TextInput secureTextEntry placeholder="Password" style={{height: 40, width: 250, borderColor: 'gray', borderWidth: 1}} />
-      <TextInput secureTextEntry placeholder="Password" style={{height: 40, width: 250, borderColor: 'gray', borderWidth: 1}} />
-
-      <Button title="Submit" onPress={this.SubmitNewUSer}> 
-
-        </Button>
-
-        
-        
-
-
-
       
       </View>
     );
@@ -66,22 +38,12 @@ class SettingsSection extends Component {
   }
 }
 
-class LoggedIn extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text> LoggedIn </Text>
-      </View>
-    );
-  }
-}
-
 export default createBottomTabNavigator({
   Profile :{screen: App},
   Social:{screen: SocialSection},
   Settings:{screen: SettingsSection}
 }, 
-  {initialRouteName: 'Profile',}
+  {initialRouteName: 'Social'}
 );
 
 
