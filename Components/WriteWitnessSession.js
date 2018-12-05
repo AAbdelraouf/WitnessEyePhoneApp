@@ -18,7 +18,16 @@ class WriteWitnessSession extends Component {
     this.onPostButton = this.onPostButton.bind(this)
   }
 
-goBackToSocialSection = () => { Actions.SocialSection() }
+goBackToSocialSection = () => { 
+  Actions.SocialSection()
+  
+  Actions.startTabBasedApp({
+    appStyle: {
+      keepStyleAcrossPush: false
+    }
+  });
+  // return false
+ }
 
 onPostButton = () => {
 

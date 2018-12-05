@@ -3,16 +3,31 @@ import {Platform, StyleSheet, Text, View} from 'react-native';
 import WitnessSessionRoute from './Components/WitnessSessionRoute.js';
 import { createBottomTabNavigator } from 'react-navigation';
 
-const App = () => {
 
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {};
+
+    this.determine = this.determine.bind(this)
+  }
+
+  determine = () => {
+    (1 < 10) ? <View><Text> Welcome! </Text> </View>  : <View><Text> Not Welcome! </Text> </View>
+  }
+  
+  render(){
+    
     return (
       // imported WitnessSessionRoute
       <View style={styles.container} >
-      <Text>
+      {/* <Text>
       Profile Section
-      </Text>
+      </Text> */}
+      {this.determine}
       </View>
     );
+  }
 }
 
 // Tab navigator section //
@@ -39,9 +54,19 @@ export default createBottomTabNavigator({
   Profile :{screen: App},
   Social:{screen: SocialSection},
   Settings:{screen: SettingsSection},
-
 });
 
+// const AppNavigator = StackNavigator({ 
+//   HomeScreen:{screen: HomeScreen},
+//   LoginScreen:{screen: LoginScreen},
+//   forgotPasswordScreen:{screen: forgotPasswordScreen}
+// },
+// {
+//   index: 0,
+//   initialRouteName: 'LoginScreen',
+//   headerMode: 'none',
+//   navigationOptions: { gesturesEnabled: false}
+// })
 
 // styles for above component
 const styles = StyleSheet.create({
