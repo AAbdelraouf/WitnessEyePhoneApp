@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-
 import Firebase from './Firebase.js';
 import SendDataToFirebase from './SendDataToFirebase.js';
+
 
 class WriteWitnessSession extends Component {
   constructor(props){
@@ -20,13 +20,6 @@ class WriteWitnessSession extends Component {
 
 goBackToSocialSection = () => { 
   Actions.SocialSection()
-  
-  Actions.startTabBasedApp({
-    appStyle: {
-      keepStyleAcrossPush: false
-    }
-  });
-  // return false
  }
 
 onPostButton = () => {

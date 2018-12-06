@@ -28,15 +28,14 @@ goToSettingsSection = () => {
     <View>
 
         <View>
+
         <TouchableOpacity >
            <Button title = "+ Start witness session" onPress = {this.goToSettingsSection} > </Button >
         </TouchableOpacity>
-        
-        <SendDataToFirebase data = {this.state.startForum} />
-        
-
 
         </View>
+
+        <SendDataToFirebase data = {this.state.startForum} />
         
     </View>
      )

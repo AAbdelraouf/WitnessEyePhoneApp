@@ -6,10 +6,12 @@ import { StyleSheet, Text, TextInput, View, Button } from 'react-native'
 
 class Login extends React.Component {
   state = { email: '', password: '', errorMessage: null }
+  
   handleLogin = () => {
     // TODO: Firebase stuff...
     console.log('handleLogin')
   }
+  
   render() {
     return (
       <View style={styles.container}>

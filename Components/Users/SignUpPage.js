@@ -4,6 +4,12 @@ import { createBottomTabNavigator } from 'react-navigation';
 import Firebase from '../Firebase.js';
 
 class SignUp extends React.Component {
+
+  static navigationOptions = {
+    title: 'SignUpPage',
+  };
+
+  
   constructor(props){
     super(props)
     this.state = { 
@@ -28,7 +34,6 @@ class SignUp extends React.Component {
         }) : console.log("Password mismatch!")
     }
   
-  
   SubmitNewUSer = () => { 
     this.onRegister()
   }
@@ -37,7 +42,6 @@ class SignUp extends React.Component {
     return (
       // imported WitnessSessionRoute
       <View style={styles.container} >
-      
       
       <Text>
       Profile Section, please sign up
@@ -63,14 +67,15 @@ class SignUp extends React.Component {
   }
 }
 
+export default SignUp;
 
-export default createBottomTabNavigator({
-  Profile :{screen: SignUp},
-  Social:{screen: SocialSection},
-  Settings:{screen: SettingsSection}
-}, 
-  {initialRouteName: 'Profile',}
-);
+// export default createBottomTabNavigator({
+//   Profile :{screen: SignUp},
+//   Social:{screen: SocialSection},
+//   Settings:{screen: SettingsSection}
+// }, 
+//   {initialRouteName: 'Profile',}
+// );
 
 // styles for above component
 const styles = StyleSheet.create({

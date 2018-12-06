@@ -1,65 +1,45 @@
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
-import WitnessSessionRoute from './Components/WitnessSessionRoute.js';
+import {Platform, StyleSheet, Button, Text, View} from 'react-native';
+
 import { createBottomTabNavigator } from 'react-navigation';
+import { Actions } from 'react-native-router-flux';
+import WitnessSessionRoute from './Components/WitnessSessionRoute.js';
+import SignUpPage from './Components/Users/SignUpPage.js';
+import Profile from './Profile.js';
+import Settings from './Settings.js'
+// import ScreensNavigator from './ScreensNavigator.js'
 
-
-class App extends React.Component {
+class App extends Component {    
   render(){
     return (
-      // imported WitnessSessionRoute
-      <View style={styles.container} >
-      <Text>
-      Profile Section
-      </Text>
-      
-      </View>
+      <Profile />
     );
   }
 }
 
-// Tab navigator section //
-class SocialSection extends Component {
-  render() {
-    return (
-      // imported WitnessSessionRoute component 
-        <WitnessSessionRoute />
-    );
-  }
-}
 
-class SettingsSection extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text> Settings Section </Text>
-      </View>
-    );
-  }
-}
-
+//Bottom navigatior bar //
 export default createBottomTabNavigator({
-  Profile :{screen: App},
-  Social:{screen: SocialSection},
-  Settings:{screen: SettingsSection}
+  Profile : {screen: Profile},
+  Social : {screen: WitnessSessionRoute},
+  Settings : {screen: Settings},
 }, 
-  {initialRouteName: 'Social'}
+  {initialRouteName: 'Settings'}
 );
 
-
-
-
-// const AppNavigator = StackNavigator({ 
-//   HomeScreen:{screen: HomeScreen},
-//   LoginScreen:{screen: LoginScreen},
-//   forgotPasswordScreen:{screen: forgotPasswordScreen}
+// const WitnessSessionRoute = StackNavigator({ 
+//   SocialSection : {screen: SocialSection},
+//   CaseType : {screen: CaseType},
+//   App : {screen: App}
 // },
 // {
 //   index: 0,
-//   initialRouteName: 'LoginScreen',
+//   initialRouteName: 'SocialSection',
 //   headerMode: 'none',
 //   navigationOptions: { gesturesEnabled: false}
-// })
+// });
+
+// export default App
 
 // styles for above component
 const styles = StyleSheet.create({
