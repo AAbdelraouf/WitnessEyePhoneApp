@@ -5,8 +5,9 @@ import { createBottomTabNavigator } from 'react-navigation';
 import { Actions } from 'react-native-router-flux';
 import WitnessSessionRoute from './Components/WitnessSessionRoute.js';
 import SignUpPage from './Components/Users/SignUpPage.js';
-import Profile from './Profile.js';
-import Settings from './Settings.js'
+
+import Profile from './Components/Profile.js';
+import Settings from './Components/Settings.js'
 // import ScreensNavigator from './ScreensNavigator.js'
 
 class App extends Component {    
@@ -16,7 +17,6 @@ class App extends Component {
     );
   }
 }
-
 
 //Bottom navigatior bar //
 export default createBottomTabNavigator({

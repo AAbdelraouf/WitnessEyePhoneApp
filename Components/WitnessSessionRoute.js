@@ -6,7 +6,8 @@ import CaseType from './CaseType.js';
 import App from '../App.js';
 import WriteWitnessSession from './WriteWitnessSession.js';
 import SignUpPage from './Users/SignUpPage.js';
-import Profile from '../Profile.js'
+import Profile  from './Profile.js'
+import Settings from './Settings.js';
 
 const WitnessSessionRoute = () => (
    <Router>
@@ -16,6 +17,7 @@ const WitnessSessionRoute = () => (
          <Scene key = "WriteWitnessSession" component = {WriteWitnessSession} title = "WriteWitnessSession" />
          <Scene key = "SignUpPage"   component = {SignUpPage}   title = "SignUpPage" />
          <Scene key = "Profile"   component = {Profile}   title = "Profile" />
+         <Scene key = "Settings"   component = {Settings}   title = "Settings" />
          <Scene key = "App"   component = {App}   title = "App" />
       </Scene>
    </Router>

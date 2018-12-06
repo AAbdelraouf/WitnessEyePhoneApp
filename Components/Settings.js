@@ -1,12 +1,25 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, Button, View, InputText } from 'react-native';
 
+import { Actions } from 'react-native-router-flux';
 
 class SettingsSection extends Component {
+constructor(props){
+  super(props);
+
+  this.state = {}
+  this.onCkickNavigate =  this.onCkickNavigate.bind(this);
+}
+
+onCkickNavigate = () => { alert("ss") }
+
     render() {
       return (
         <View style={styles.container}>
-          <Text> Settings Section </Text>
+        
+          <Text
+            onPress = {this.onCkickNavigate}
+          > Settings Section </Text>
         </View>
       );
     }

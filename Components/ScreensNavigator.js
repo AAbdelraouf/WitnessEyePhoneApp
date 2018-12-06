@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, AppRegistry, Button } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-import SignUpPage from './Components/Users/SignUpPage.js'
+import SignUpPage from './Users/SignUpPage.js'
 // import App from './App.js'
 
 class App extends React.Component {
