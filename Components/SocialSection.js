@@ -21,6 +21,7 @@ constructor(props){
 goToSettingsSection = () => {
       this.setState({ startForum : "edbraouf"  })
       Actions.CaseType();
+    //   Actions.WriteWitnessSession();
    }
 
    render(){

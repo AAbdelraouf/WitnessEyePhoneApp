@@ -1,30 +1,44 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, Button, View, InputText } from 'react-native';
 
+
+import React, { Component } from 'react';
+import { TouchableOpacity, Text, Button, View, StyleSheet, TextInput } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-class SettingsSection extends Component {
+// import SendDataToFirebase from './SendDataToFirebase.js';
+// import RetrieveDataFromFirebase from './RetrieveDataFromFirebase.js';
+// import Firebase from './Firebase.js';
+
+class Settings extends Component {
 constructor(props){
-  super(props);
+    super(props);
+    this.state = {
+            // propsToSendDataToFirebase: this.createSessionInState
+            startForum: ""
+        }
 
-  this.state = {}
-  this.onCkickNavigate =  this.onCkickNavigate.bind(this);
+    // this.createSessionInState = this.createSessionInState.bind(this);
+    this.goToSettingsSection  = this.goToSettingsSection.bind(this);
 }
 
-onCkickNavigate = () => { alert("ss") }
+goToSettingsSection = () => {
+      // this.setState({ startForum : "edbraouf"  })
+      Actions.CaseType();
+    //   Actions.WriteWitnessSession();
+   }
 
-    render() {
-      return (
-        <View style={styles.container}>
+   render(){
+    return (
+    <View style = {styles.container} >
+
+      <Text onPress = {this.goToSettingsSection} > Try now! </Text>
         
-          <Text
-            onPress = {this.onCkickNavigate}
-          > Settings Section </Text>
-        </View>
-      );
-    }
+    </View>
+     )
+   }
 }
-export default SettingsSection;
+
+export default Settings;
+
 
 const styles = StyleSheet.create({
     container: {
@@ -44,3 +58,7 @@ const styles = StyleSheet.create({
       marginBottom: 5,
     },
   });
+
+
+
+

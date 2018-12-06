@@ -4,7 +4,6 @@ import { Actions } from 'react-native-router-flux';
 import Firebase from './Firebase.js';
 import SendDataToFirebase from './SendDataToFirebase.js';
 
-
 class WriteWitnessSession extends Component {
   constructor(props){
     super(props);

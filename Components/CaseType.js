@@ -17,8 +17,6 @@ class CaseType extends React.Component {
       clickedElement : ""
      };
 
-     
-
     this.goToSocialSection = this.goToSocialSection.bind(this);
   }
 
