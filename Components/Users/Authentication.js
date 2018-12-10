@@ -3,7 +3,7 @@ import { View, Text, Button, TextInput } from 'react-native';
 
 
 const Authenticate = () => {
-    (1 < 10) ? <Text> True </Text> : <Text> False </Text>
+    (userLoggedIn) ? <Text> Welcome </Text> : <Text> Please Login or sign up </Text>
 }
 
 export default Authenticate;

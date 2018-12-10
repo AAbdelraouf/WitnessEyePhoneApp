@@ -1,69 +1,31 @@
-import React, { Component } from 'react';
-import { Text, Button, View, ListView } from 'react-native'
+import React, {Component} from 'react';
+import {Text, Button, View, ListView} from 'react-native'
 
 import Firebase from './Firebase.js';
 
 class RetrieveDataFromFirebase extends React.Component {
-    constructor(props){
-        this.state = {  }
+    constructor(props) {
+        this.state = {valueReceived:""}
     }
 
-    componentDidMount(){
-        // var recentPostsRef = Firebase.database().ref('/Users/ahmedbas/title');
-        // recentPostsRef.once('value').then(snapshot => {
-        //   this.setState({ stores: snapshot.val() })
-        //   alert(snapshot.val())
-        // })
+    componentDidMount() {
+        var databaseRef = Firebase.database().ref('/Users/ahmedbas/title');
+        databaseRef.on('value', function (snapshot) {
+            console.log(snapshot.val())
+        });
+        this.setState({ valueReceived: snapshot.val() })
+        console.log(this.state.valueReceived)
+    }
 
-            var starCountRef = Firebase.database().ref('/Users/ahmedbas/title');
-            starCountRef.on('value', function(snapshot) {
-            // updateStarCount(postElement, snapshot.val());
-            
-            alert(snapshot.val())
-});
-this.setState({
-    valueReceived : snapshot.val()
-})
-alert(this.state.valueReceived)
-}
-
-
-// FirebaseApp.database().ref('/users/' + userId).on('value', (snapshot) => {
-//     const userObj = snapshot.val();
-//     this.name = userObj.name;
-//     this.avatar = userObj.avatar;
-//   });
-
-
-//   handleChange(e) {
-//     this.setState({
-//       name: e.nativeEvent.text
-//     });
-//   }
-  
-
-
-//   componentDidMount() {
-//     itemsRef.on('value', (snapshot) => {
-//         let data = snapshot.val();
-//         let items = Object.values(data);
-//         this.setState({items});
-//      });
-// }
-
-
-
-
-
-    render() { 
-        return ( 
+    render() {
+        return (
             <View>
                 <Text>
-                {this.stat}
-                    </Text>
-                </View>
-         );
+                    {this.state.valueReceived}
+                </Text>
+            </View>
+        );
     }
 }
- 
+
 export default RetrieveDataFromFirebase;

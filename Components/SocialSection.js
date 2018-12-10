@@ -10,11 +10,9 @@ class SocialSection extends Component {
 constructor(props){
     super(props);
     this.state = {
-            // propsToSendDataToFirebase: this.createSessionInState
             startForum: ""
         }
 
-    // this.createSessionInState = this.createSessionInState.bind(this);
     this.goToSettingsSection  = this.goToSettingsSection.bind(this);
 }
 
